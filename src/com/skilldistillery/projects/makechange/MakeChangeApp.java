@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MakeChangeApp {
   public static void main(String[] args) {
     
+    //create variables for money given/received/items
     double itemPrice, customerCash, changeGiven;
     Scanner sc = new Scanner(System.in);
     System.out.println("What is the price of the item?");
@@ -14,7 +15,8 @@ public class MakeChangeApp {
     System.out.println("How much money did the customer give?");
     customerCash = sc.nextDouble();
     System.out.println("The customer gave you " + "$" + customerCash);
-
+    
+    //loop calculating if the item is the correct amount, too much or too little
     if (customerCash < itemPrice) {
       System.out.println("You still owe: $" + (itemPrice - customerCash));
     } else if (customerCash == itemPrice) {
@@ -26,7 +28,8 @@ public class MakeChangeApp {
     }
     sc.close();
   }
-
+ 
+//method that calculates the required change
   public static void cashRegister(double change) {
     int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
 
@@ -34,6 +37,7 @@ public class MakeChangeApp {
 
     twenties = modChange / 2000;
     modChange = modChange % 2000;
+    //if statement to ignore the amount if it's not used
     if (twenties != 0) {
       System.out.println("Number of 20's = " + twenties);
     }
